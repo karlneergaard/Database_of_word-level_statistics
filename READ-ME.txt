@@ -1,0 +1,225 @@
+DoWLS-MAN
+Database of Word-level Statistics (Mandarin)
+authors: Karl David Neergaard, Hongzhi Xu, Chu-Ren Huang
+
+This database provides lexical characteristics of a descriptive and statistical nature 
+for words and nonwords of Mandarin Chinese. It is designed for researchers particularly 
+concerned with language processing of isolated words. The database is divided into 32 files,
+separated according to the segmentation schema (8 tonal and 8 nontonal) used to calculate 
+phonological similarity between words. Half of the files are for words, the other half 
+nonwords. Each file consists of invariant and variant lexical characteristics
+
+Tonal segmentation schemas: C_G_V_C_T, C_G_V_X_T, C_V_C_T, C_G_VX_T, C_GVX_T, CG_V_X_T, CG_VX_T, CGVX_T
+
+Non-tonal segmentation schemas: C_G_V_C, C_G_V_X, C_V_C, C_G_VX, C_GVX, CG_V_X, CG_VX, CGVX
+
+*** Segmentation is done by adding blank spaces between units ***
+Examples per each segmentation schema with the syllable: 
+xiao3/ɕiaʊ3/(小) & xian4/ɕiɛn4/(线)
+
+Tonal
+Schema		Sampa		Sampa
+C_G_V_C_T	X i aʊ 3	X i E n 4
+C_G_V_X_T	X i a ʊ 3	X i E n 4
+C_V_C_T		X iaʊ 3		X iE n 4
+C_G_VX_T	X i aʊ 3	X i En 4
+C_GVX_T		X iaʊ 3		X iEn 4
+CG_V_X_T	Xi a ʊ 3	Xi E n 4
+CG_VX_T		Xi aʊ 3		Xi En 4
+CGVX_T		Xiaʊ 3		XiEn 4
+
+Non-tonal
+schema		Sampa	  		
+C_G_V_C		X i aʊ		X i E n
+C_G_V_X		X i a ʊ		X i E n
+C_V_C		X iaʊ		X iE n
+C_G_VX		X i aʊ		X i En
+C_GVX		X iaʊ		X iEn
+CG_V_X		Xi a ʊ		Xi E n
+CG_VX		Xi aʊ		Xi En
+CGVX		Xiaʊ		XiEn
+
+_________________________________
+Invariant lexical characteristics
+
+Key: Searchable phonological word without spaces, i.e., sampa without spaces 
+(unsegmented) of phonological words. Segmented versions of the same sampa can be 
+found for each of the schemas under Pho_T or Pho_NoT below.
+
+PY_T: Pinyin with tone
+
+PY_NoT: Pinyin without tone
+
+IPA_T: IPA with tone
+
+IPA_NoT: IPA without tone
+
+Onset: Item onset according to sampa dictionary below
+
+Tone: Lexical tone number/s
+
+SyStruct: Syllable structure according to the CGVX system
+
+SyLen: Syllable length
+
+PyLen: Pinyin length
+
+Dom_POS: Dominant part of speech (POS)
+
+Freq_Dom_POS: Frequency of the dominant POS
+
+Percent_Dom_POS: The percent that the Dom_POS represents "Key_T" in comparison to 
+other POS assignments for the same "Key_T"
+
+Other_POSes: The other parts of speech assignments that were not of the highest percentage
+
+_______________________________
+Variant lexical characteristics
+
+Pho_T: Tonal segmented phonological word, i.e., the phonological word as represented in sampa,
+segmented according to a segmentation schema. The unsegmented version of this column is 
+either Key_T.
+
+Pho_NoT: Non-tonal segmented phonological word, i.e., the phonological word as represented 
+in sampa, segmented according to a segmentation schema. The unsegmented version of this column 
+is Key_NoT.
+
+PhoLen: Phoneme length, i.e., the number of units within the item after being 
+segmented according to one of the 16 segmentation schemas
+
+FreqPM: Subtitle movie corpus lexical frequency (per million), i.e., the summed 
+subtitle movie corpus frequency per million, for each phonological word seen in Key.  
+
+Homophones: Simplified Chinese character/s that correspond to the phonological word 
+presented in Key
+
+HD: Homophone density, i.e., the number of words that share the same pronunciation 
+as seen in Pho_T for tonal files and Pho_NoT for non-tonal files
+
+PND: Phonological neighborhood density, i.e., The total number of phonological 
+neighbors after calculating the replacement, addition, and subtraction of a segment 
+between the target word and the top 30,000 most frequent phonological words
+
+Sub_PND: Substitution neighbors, i.e., the number of substitution neighbors between the 
+target word and the top 30,000 most frequent phonological words
+
+Add_PND: Addition neighbors, i.e., the number of addition neighbors between the target 
+word and the top 30,000 most frequent phonological words
+
+Del_PND: Deletion neighbors, i.e., the number of deletion neighbors between the 
+target word and the top 30,000 most frequent phonological words
+
+Neighbors: All phonological neighbors presented in sampa
+
+NF: Neighborhood frequency, i.e., the mean frequency of all of the 
+phonological neighbors seen in Neighbors
+
+CC: Clustering coefficient, i.e., the ratio of neighbors that are neighbors of each other
+as measured through the igraph R function for local transitivity()
+
+CS: Component size, i.e., the number of nodes within the component a word resides in
+
+Btw: Betweenness centrality, i.e., the number of times a given node is a bridge between the shortest paths of two other nodes as measured through the igraph R function betweenness()
+
+Close: Closeness centrality, i.e., the average shortest path length between a given node and all other nodes within its component as measured through the igraph R function closeness()
+
+Eigen: Eigenvector centrality, i.e., the relative influence of nodes based on the influence of its neighbors, such that a node with high Eigen is connected to many nodes that have high Eigen. Eigen was measured through the igraph R function centr_eigen()
+
+
+_______________________________
+Notes on the word list
+
+The original frequency counts are adapted from the word list of Subtlex-CH (Cai & Brysbaert, 
+2010).
+
+_______________________________
+Notes on the nonword list
+
+The nonword items include four classes as labelled in the Lexicality column: "added", "tonegap", 
+"syllablegap", and "systemicgap". Added items are existing syllables that correspond to a Chinese 
+character but were not items featured in the Subtlex-CH wordlist. These items were added to the 
+list in order to provide statistical information for all Mandarin syllables. They were however 
+given a frequency count of 0 and accordingly do not contribute to measures of phonological 
+neighborhoods.Tone gap nonwords are items whose syllables exist in the Mandarin syllable inventory 
+but whose tone assignment does not correspond to a Chinese character. Syllable gap nonwords are 
+items whose syllables do not exist in the Mandarin syllable inventory that were constructed through 
+choosing biphone combinations that do exist in the inventory. Systemic gap nonwords are items that 
+comprise biphone combinations that do not exist in the Mandarin syllable inventory.
+_____________________________________________
+IPA to sampa conversion chart with examples
+
+The following conversions come from Neergaard & Huang (2019)
+
+IPA -> Sampa -> Pinyin Syllable -> Sampa Syllable -> Character
+
+a -> a -> ba3 -> pa3 -> 把
+
+ə -> @ -> she4 -> S@4 -> 蛇
+
+e -> e -> gei3 -> keI3 -> 给
+
+ɛ -> E -> ye3 -> iE3 -> 也
+
+ɨ -> 1 -> zhi1 -> Z11 -> 之
+
+i -> i -> di4 -> ti4 -> 第
+
+ɪ -> I -> sui4 -> sueI4 -> 岁
+
+o -> o -> ruo4 -> ruo4 -> 若
+
+ʊ -> U -> chou3 -> CoU3 -> 丑
+
+u -> u -> wo3 -> uo3 -> 我
+
+y -> y -> yuan2 -> yEn2 -> 元
+
+m -> m -> ma1 -> ma1 -> 妈
+
+n -> n -> neng2 -> n@N2 -> 能
+
+ŋ -> N -> xiang3 -> XiaN3 -> 想
+
+l -> l -> lie4 -> liE4 -> 列
+
+r -> r -> rang4 -> raN4 -> 让
+
+p -> p -> bu4 -> pu4 -> 不
+
+pʰ -> P -> pao3 -> PaU3 -> 跑
+
+k -> k -> ge0 -> k@0 -> 个
+
+kʰ -> K -> ke4 -> K@4 -> 课
+
+t -> t -> dou1 -> toU1 -> 都
+
+tʰ -> T -> ta1 -> Ta1 -> 他
+
+s -> s -> suo3 -> suo3 -> 所
+
+f -> f -> fang4 -> faN4 -> 放
+
+x -> x -> hui4 -> xueI4 -> 会
+
+ʂ -> S -> shi4 -> S14 -> 是
+
+ɕ -> X -> xia4 -> Xia4 -> 下
+
+tɕ -> J -> jiu4 -> JioU4 -> 就
+
+tɕʰ -> Q -> qing3 -> QiN3 -> 请
+
+tsʰ -> c -> cong2 -> coN2 -> 从
+
+tʂʰ -> C -> chu1 -> Cu1 -> 出
+
+ts -> z -> zi4 -> z14 -> 字
+
+tʂ -> Z -> zhe -> Z@4 -> 这
+
+Reference:
+Cai, Q. & Brysbaert, M. (2010). SUBTLEX-CH: Chinese word and character frequencies based 
+	on film subtitles. PLoS ONE 5(6): e10729. http://dx.doi.org/10.1371/journal.pone.0010729
+Neergaard, K. & Huang, C. (2019). Constructing the Mandarin Phonological Network: Novel	Syllable Inventory Used to Identify Schematic Segmentation. Complexity, Article 6979830, 1-21.
+	http://202.171.253.68/downloads.hindawi.com/journals/complexity/2019/6979830.pdf
