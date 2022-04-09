@@ -1,13 +1,18 @@
 DoWLS-MAN
 Database of Word-level Statistics (Mandarin)
-authors: Karl David Neergaard, Hongzhi Xu, Chu-Ren Huang
+authors: Karl David Neergaard, Hongzhi Xu, James Sneed German, Chu-Ren Huang
 
 This database provides lexical characteristics of a descriptive and statistical nature 
-for words and nonwords of Mandarin Chinese. It is designed for researchers particularly 
-concerned with language processing of isolated words. The database is divided into 32 files,
-separated according to the segmentation schema (8 tonal and 8 nontonal) used to calculate 
-phonological similarity between words. Half of the files are for words, the other half 
-nonwords. Each file consists of invariant and variant lexical characteristics
+for words and nonwords of Mandarin Chinese. The article describing this database 
+(Neergaard et al., 2021) can be found at https://link.springer.com/article/10.3758/s13428-021-01620-7.
+Meanwhile, the website that provides an interface to the database can be found at https://dowls.site/.
+The syllable inventory that the database is built on was created in Neergaard & Huang (2019).
+
+The database is designed for researchers particularly concerned with language processing 
+of isolated words.  The database is divided into 32 files, separated according to the 
+segmentation schema (8 tonal and 8 nontonal) used to calculate phonological similarity 
+between words. Half of the files are for words, the other half nonwords. Each file consists 
+of invariant and variant lexical characteristics
 
 Tonal segmentation schemas: C_G_V_C_T, C_G_V_X_T, C_V_C_T, C_G_VX_T, C_GVX_T, CG_V_X_T, CG_VX_T, CGVX_T
 
@@ -87,8 +92,10 @@ is Key_NoT.
 PhoLen: Phoneme length, i.e., the number of units within the item after being 
 segmented according to one of the 16 segmentation schemas
 
-FreqPM: Subtitle movie corpus lexical frequency (per million), i.e., the summed 
-subtitle movie corpus frequency per million, for each phonological word seen in Key.  
+FreqDowls: Raw subtitle movie corpus lexical frequency for each phonological word seen in 
+Key. 
+
+FreqDL: Log10 transformation of FreqDowls
 
 Homophones: Simplified Chinese character/s that correspond to the phonological word 
 presented in Key
@@ -125,7 +132,6 @@ Close: Closeness centrality, i.e., the average shortest path length between a gi
 
 Eigen: Eigenvector centrality, i.e., the relative influence of nodes based on the influence of its neighbors, such that a node with high Eigen is connected to many nodes that have high Eigen. Eigen was measured through the igraph R function centr_eigen()
 
-
 _______________________________
 Notes on the word list
 
@@ -154,7 +160,7 @@ IPA -> Sampa -> Pinyin Syllable -> Sampa Syllable -> Character
 
 a -> a -> ba3 -> pa3 -> 把
 
-ə -> @ -> she4 -> S@4 -> 蛇
+ə -> @ -> she2 -> S@2 -> 蛇
 
 e -> e -> gei3 -> keI3 -> 给
 
@@ -182,7 +188,7 @@ n -> n -> neng2 -> n@N2 -> 能
 
 l -> l -> lie4 -> liE4 -> 列
 
-r -> r -> rang4 -> raN4 -> 让
+ɹ -> r -> rang4 -> raN4 -> 让
 
 p -> p -> bu4 -> pu4 -> 不
 
@@ -221,5 +227,9 @@ tʂ -> Z -> zhe -> Z@4 -> 这
 Reference:
 Cai, Q. & Brysbaert, M. (2010). SUBTLEX-CH: Chinese word and character frequencies based 
 	on film subtitles. PLoS ONE 5(6): e10729. http://dx.doi.org/10.1371/journal.pone.0010729
-Neergaard, K. & Huang, C. (2019). Constructing the Mandarin Phonological Network: Novel	Syllable Inventory Used to Identify Schematic Segmentation. Complexity, Article 6979830, 1-21.
-	http://202.171.253.68/downloads.hindawi.com/journals/complexity/2019/6979830.pdf
+Neergaard, K. & Huang, C. (2019). Constructing the Mandarin Phonological Network: 
+	Novel Syllable Inventory Used to Identify Schematic Segmentation. Complexity, Article 
+	6979830, 1-21. http://202.171.253.68/downloads.hindawi.com/journals/complexity/2019/6979830.pdf
+Neergaard, K. Xu, H. German, J. Huang, C. (2021) Database of Word-Level Statistics for 
+	Mandarin Chinese (DoWLS-MAN) Behavior Research Methods.
+	https://link.springer.com/article/10.3758/s13428-021-01620-7
